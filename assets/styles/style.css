@@ -1,0 +1,1723 @@
+@font-face {
+    font-family: 'Angeme';
+    src: url("../fonts/Angeme-Regular.woff2") format("woff2"),
+    url("../fonts/Angeme-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /*
+        Palette Sections
+    */
+    --palette-primary: rgba(254, 50, 85, 1);
+    --palette-primary-opacity: rgba(254, 50, 85, 0.4);
+    --palette-text-lighting: rgba(254, 50, 85, 1);
+    --palette-secondary: rgba(46, 62, 86, 1);
+    --palette-background: rgba(30, 32, 66, 1);
+    --palette-default: rgba(255, 255, 255, 1);
+    --palette-text-default: rgba(255, 255, 255, 1);
+    --palette-gradient-section: linear-gradient(
+        90deg,
+        rgba(254, 50, 85, 1) 0%,
+        rgba(30, 32, 66, 1) 71%);
+    --palette-gradient-button: linear-gradient(
+        180deg,
+        rgba(254, 50, 85, 1) 0%,
+        rgba(225, 59, 88, 1) 21.45%,
+        rgba(186, 50, 74, 1) 53.49%,
+        rgba(202, 35, 64, 1) 92.58%);
+    --palette-gradient-button-hover: linear-gradient(
+        180deg,
+        rgba(202, 35, 64, 1) 0%,
+        rgba(202, 35, 64, 1) 21.45%,
+        rgba(202, 35, 64, 1) 53.49%,
+        rgba(202, 35, 64, 1) 92.58%);
+
+    /*
+        Typography Sections
+    */
+    /* Default Typography */
+    --typography-default-family: Rubik;
+    --typography-default-weight: 500;
+    --typography-default-size: 32px;
+    --typography-default-lineheight: 37px;
+
+    /* H1 */
+    --typography-h1-family: Angeme;
+    --typography-h1-weight: 400;
+    --typography-h1-size: 190px;
+    --typography-h1-lineheight: 171px;
+
+    /* H2 */
+    --typography-h2-family: Rubik;
+    --typography-h2-weight: 600;
+    --typography-h2-size: 36px;
+    --typography-h2-lineheight: 53px;
+
+    /* Subtitle1 */
+    --typography-subtitle1-family: Rubik;
+    --typography-subtitle1-weight: 600;
+    --typography-subtitle1-size: 36px;
+    --typography-subtitle1-lineheight: 44px;
+
+    /* Subtitle2 */
+    --typography-subtitle2-family: Rubik;
+    --typography-subtitle2-weight: 600;
+    --typography-subtitle2-size: 96px;
+    --typography-subtitle2-lineheight: 144px;
+
+    /* Body1 */
+    --typography-body1-family: Rubik;
+    --typography-body1-weight: 300;
+    --typography-body1-size: 24px;
+    --typography-body1-lineheight: 24px;
+
+    /* Body2 */
+    --typography-body2-family: Rubik;
+    --typography-body2-weight: 400;
+    --typography-body2-size: 40px;
+    --typography-body2-lineheight: 70px;
+
+    /* Button */
+    --typography-button-family: Rubik;
+    --typography-button-weight: 600;
+    --typography-button-size: 48px;
+    --typography-button-lineheight: 77px;
+
+    /* Blocks */
+    --section-min-height: 120px;
+    --section-padding: 50px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--typography-default-family);
+    font-size: var(--typography-default-size);
+    font-weight: var(--typography-default-weight);
+    line-height: var(--typography-default-lineheight);
+    color: var(--palette-text-default);
+    background-color: var(--palette-background);
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+}
+
+h1 {
+    font-family: var(--typography-h1-family);
+    font-size: var(--typography-h1-size);
+    font-weight: var(--typography-h1-weight);
+    line-height: var(--typography-h1-lineheight);
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    font-family: var(--typography-subtitle1-family);
+    font-size: var(--typography-subtitle1-size);
+    font-weight: var(--typography-subtitle1-weight);
+    line-height: var(--typography-subtitle1-lineheight);
+    color: var(--palette-primary);
+}
+
+.subtitle-2 {
+    font-family: var(--typography-subtitle2-family);
+    font-weight: var(--typography-subtitle2-weight);
+    font-size: var(--typography-subtitle2-size);
+    animation: neon 1.5s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px var(--palette-text-lighting);
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(189, 183, 126, 1),
+      0 0 35px rgba(189, 183, 126, 1), 0 0 40px rgba(189, 183, 126, 1), 0 0 50px rgba(189, 183, 126, 1), 0 0 75px rgba(189, 183, 126, 1);
+  }
+  to {
+    text-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px rgba(189, 183, 126, 1),
+      0 0 14.5px rgba(189, 183, 126, 1), 0 0 20px rgba(189, 183, 126, 1), 0 0 25px rgba(189, 183, 126, 1), 0 0 32.5px rgba(189, 183, 126, 1);
+  }
+}
+
+.subtitle-3 {
+    font-family: var(--typography-body2-family);
+    font-size: var(--typography-body2-size);
+    font-weight: var(--typography-body2-weight);
+    line-height: var(--typography-body2-lineheight);
+}
+
+.caption {
+    font-family: var(--typography-body1-family);
+    font-size: var(--typography-body1-size);
+    font-weight: var(--typography-body1-weight);
+    line-height: var(--typography-body1-lineheight);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section {
+    min-height: var(--section-min-height);
+    padding: var(--section-padding);
+}
+
+.nav-left,
+.nav-right {
+    flex: 0 1 auto;
+}
+.nav-fill {
+    flex: 1 1 auto;
+}
+
+.header__logo img {
+    width: 164px;
+    height: 153px;
+}
+
+.main__content__wrapper {
+    background: linear-gradient(90deg, #2E3E56 0%, rgba(30, 32, 66, 0.5) 100%);
+}
+
+.stick {
+    background-color: var(--palette-primary);
+    height: 30px;
+}
+
+.stick.first {
+    width: 185px;
+}
+
+.stick.second {
+    width: 51px;
+}
+
+.stick.third {
+    width: 112px;
+}
+
+.white {
+    background-color: var(--palette-default);
+}
+
+.advantages__title__block {
+    background-color: var(--palette-primary);
+    padding: 30px 100px;
+    clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 0);
+}
+
+.offer__title__block {
+    background-color: var(--palette-primary);
+    padding: 30px 100px;
+    clip-path: polygon(100% 0, 90% 100%, 0% 100%, 0 0);
+}
+
+.games__title__block {
+    background-color: var(--palette-primary);
+    padding: 30px 100px;
+    clip-path: polygon(100% 0, 90% 100%, 0% 100%, 0 0);
+}
+
+.secondary__wrapper {
+    background-color: var(--palette-secondary);
+}
+
+.advantages__content {
+    max-width: 780px;
+}
+
+.game__card {
+    min-height: 330px;
+    width: 19%;
+}
+
+.game__card img {
+    height: 250px;
+    width: 250px;
+    border: 5px solid var(--palette-default);
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.game__card__title {
+    font-family: var(--typography-body2-family);
+    font-size: var(--typography-body2-size);
+    font-weight: var(--typography-body2-weight);
+    line-height: var(--typography-body2-lineheight);
+}
+
+button {
+    font-family: var(--typography-button-family);
+    font-size: var(--typography-button-size);
+    font-weight: var(--typography-button-weight);
+    line-height: var(--typography-button-lineheight);
+    background: var(--palette-gradient-button);
+    border: 2px solid var(--palette-primary);
+    border-radius: 30px;
+    color: var(--palette-text-default);
+    transition: all .5s ease-in-out;
+    position: relative;
+    overflow-x: hidden;
+}
+
+button:hover {
+    background: var(--palette-gradient-button-hover);
+}
+
+.main__image__wrapper img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.advantages__image img {
+    border: 15px solid var(--palette-default);
+    border-radius: 20px;
+    z-index: 5;
+}
+
+.advantages__image .first {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.advantages__image .third {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+button .flare {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 45px;
+    transform: skewx(-45deg);
+    animation: flareAnimation;
+    left: -150%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+    animation: flareAnimation 3s infinite linear;
+}
+
+@keyframes flareAnimation {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+.advantages__back__image .left__back__2 {
+    right: -5%;
+}
+
+.line {
+    border: 3px solid var(--palette-primary)
+}
+
+.olympus-advantages-image-wrapper {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin-right: 0px;
+    margin-top: 165px;
+    z-index: -1;
+}
+
+.advantages-1-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/advantages_1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 10px solid var(--palette-default);
+}
+
+.advantages-1-wrapper {
+    left: 0;
+    top: 0;
+    width: 822px;
+    height: 822px;
+    margin-left: 0px;
+    margin-top: 80px;
+}
+
+.advantages-2-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/advantages_2.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 10px solid var(--palette-default);
+}
+
+.advantages-2-wrapper {
+    right: 0;
+    top: 0;
+    width: 822px;
+    height: 822px;
+    margin-right: 0px;
+    margin-top: 768px;
+}
+
+.advantages-3-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/advantages_3.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 10px solid var(--palette-default);
+}
+
+.advantages-3-wrapper {
+    left: 0;
+    top: 0;
+    width: 822px;
+    height: 822px;
+    margin-left: 0px;
+    margin-top: 1601px;
+}
+
+.back_part_advantages_1 {
+    width: 909px;
+    height: 909px;
+    background-color: var(--palette-primary);
+    z-index: -2;
+    border-radius: 100% 100% 100% 0px;
+    opacity: .7;
+}
+
+.back_part_advantages_2 {
+    width: 909px;
+    height: 909px;
+    background-color: var(--palette-primary);
+    z-index: -2;
+    border-radius: 100% 100% 0% 100%;
+    opacity: .7;
+}
+
+.back_part_advantages_3 {
+    width: 909px;
+    height: 909px;
+    background-color: var(--palette-primary);
+    z-index: -2;
+    border-radius: 100% 100% 100% 0px;
+    opacity: .7;
+}
+
+.helper__one__wrapper {
+    padding-bottom: 427px;
+}
+
+.helper__two__wrapper {
+    padding-bottom: 327px;
+}
+
+.back-1-image {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 411.5px 411.5px 411.5px;
+    border-color: transparent transparent rgba(46, 62, 86, 0.3) transparent;
+}
+
+.back-1-wrapper {
+    right: 0;
+    top: 0;
+    width: 823px;
+    height: 823px;
+    margin-right: 0px;
+    margin-top: 426px;
+    z-index: -5;
+}
+
+.back-2-image {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 900px 0 900px 900px;
+    border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+}
+
+.back-2-wrapper {
+    left: 0;
+    top: 0;
+    width: 823px;
+    height: 823px;
+    margin-left: 0px;
+    margin-top: 956px;
+    z-index: -5;
+}
+
+.back-3-image {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 900px 0 900px 900px;
+    border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+}
+
+.back-3-wrapper {
+    right: 0;
+    top: 0;
+    width: 823px;
+    height: 823px;
+    margin-right: -200px;
+    margin-top: 1156px;
+    z-index: -5;
+}
+
+.advantages__content.right,
+.helper__one__wrapper {
+    padding-right: 100px;
+}
+
+.advantages__content.left,
+.helper__two__wrapper {
+    padding-left: 100px;
+}
+
+.offer__wrapper img {
+    animation: scale 3s infinite linear;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+/*
+    Media
+*/
+@media (min-width: 1651px) and (max-width: 1700px){
+    .main__section {
+        padding-top: 200px;
+    }
+}
+@media (min-width: 1436px) and (max-width: 1650px){
+
+    .advantages-1-wrapper {
+        left: 0;
+        top: 0;
+        width: 622px;
+        height: 622px;
+        margin-left: 0px;
+        margin-top: 80px;
+    }
+
+    .back_part_advantages_1 {
+        width: 709px;
+        height: 709px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .advantages-2-wrapper {
+        right: 0;
+        top: 0;
+        width: 622px;
+        height: 622px;
+        margin-right: 0px;
+        margin-top: 668px;
+    }
+
+    .back_part_advantages_2 {
+        width: 709px;
+        height: 709px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 0% 100%;
+        opacity: .7;
+    }
+
+    .advantages-3-wrapper {
+        left: 0;
+        top: 0;
+        width: 622px;
+        height: 622px;
+        margin-left: 0px;
+        margin-top: 1401px;
+    }
+
+    .back_part_advantages_3 {
+        width: 709px;
+        height: 709px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .helper__one__wrapper {
+        padding-bottom: 250px;
+    }
+
+    .helper__two__wrapper {
+        padding-bottom: 150px;
+    }
+
+    .back-1-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 361.5px 361.5px 361.5px;
+        border-color: transparent transparent rgba(46, 62, 86, 0.3) transparent;
+    }
+
+    .back-1-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -150px;
+        margin-top: 426px;
+        z-index: -5;
+    }
+
+    .back-2-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 700px 0 700px 700px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-2-wrapper {
+        left: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-left: 0px;
+        margin-top: 656px;
+        z-index: -5;
+    }
+
+    .back-3-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 700px 0 700px 700px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-3-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -400px;
+        margin-top: 956px;
+        z-index: -5;
+    }
+
+    .olympus-advantages-image-wrapper {
+        overflow: hidden;
+    }
+
+    .main__section {
+        padding-top: 250px;
+    }
+
+    .offer__wrapper img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1435px) {
+    .advantages-1-wrapper {
+        left: 0;
+        top: 0;
+        width: 522px;
+        height: 522px;
+        margin-left: 0px;
+        margin-top: 80px;
+    }
+
+    .back_part_advantages_1 {
+        width: 609px;
+        height: 609px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .advantages-2-wrapper {
+        right: 0;
+        top: 0;
+        width: 522px;
+        height: 522px;
+        margin-right: 0px;
+        margin-top: 658px;
+    }
+
+    .back_part_advantages_2 {
+        width: 609px;
+        height: 609px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 0% 100%;
+        opacity: .7;
+    }
+
+    .advantages-3-wrapper {
+        left: 0;
+        top: 0;
+        width: 522px;
+        height: 522px;
+        margin-left: 0px;
+        margin-top: 1401px;
+    }
+
+    .back_part_advantages_3 {
+        width: 609px;
+        height: 609px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .helper__one__wrapper {
+        padding-bottom: 120px;
+    }
+
+    .helper__two__wrapper {
+        padding-bottom: 120px;
+    }
+
+    .back-1-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 361.5px 361.5px 361.5px;
+        border-color: transparent transparent rgba(46, 62, 86, 0.3) transparent;
+    }
+
+    .back-1-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -250px;
+        margin-top: 426px;
+        z-index: -5;
+    }
+
+    .back-2-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 600px 0 600px 600px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-2-wrapper {
+        left: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-left: 0px;
+        margin-top: 556px;
+        z-index: -5;
+    }
+
+    .back-3-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 600px 0 600px 600px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-3-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -600px;
+        margin-top: 956px;
+        z-index: -5;
+    }
+
+    .olympus-advantages-image-wrapper {
+        overflow: hidden;
+    }
+
+    .main__section {
+        padding-top: 250px;
+    }
+
+    .offer__wrapper img {
+        width: 300px;
+        height: auto;
+    }
+
+    .main__image__wrapper img {
+        z-index: -1;
+    }
+
+    .main__content__wrapper {
+        background: transparent;
+    }
+
+    /* Games */
+    .game__card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .game__card {
+        width: 19%;
+        min-height: auto;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1299px) {
+    .advantages-1-wrapper {
+        left: 0;
+        top: 0;
+        width: 450px;
+        height: 450px;
+        margin-left: 0px;
+        margin-top: 80px;
+    }
+
+    .back_part_advantages_1 {
+        width: 500px;
+        height: 500px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .advantages-2-wrapper {
+        right: 0;
+        top: 0;
+        width: 450px;
+        height: 450px;
+        margin-right: 0px;
+        margin-top: 768px;
+    }
+
+    .back_part_advantages_2 {
+        width: 500px;
+        height: 500px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 0% 100%;
+        opacity: .7;
+    }
+
+    .advantages-3-wrapper {
+        left: 0;
+        top: 0;
+        width: 450px;
+        height: 450px;
+        margin-left: 0px;
+        margin-top: 1401px;
+    }
+
+    .back_part_advantages_3 {
+        width: 500px;
+        height: 500px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .helper__one__wrapper {
+        padding-bottom: 50px;
+    }
+
+    .helper__two__wrapper {
+        padding-bottom: 50px;
+    }
+
+    .back-1-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 361.5px 361.5px 361.5px;
+        border-color: transparent transparent rgba(46, 62, 86, 0.3) transparent;
+    }
+
+    .back-1-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -250px;
+        margin-top: 426px;
+        z-index: -5;
+    }
+
+    .back-2-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 600px 0 600px 600px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-2-wrapper {
+        left: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-left: 0px;
+        margin-top: 556px;
+        z-index: -5;
+    }
+
+    .back-3-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 600px 0 600px 600px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-3-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -600px;
+        margin-top: 956px;
+        z-index: -5;
+    }
+
+    .olympus-advantages-image-wrapper {
+        overflow: hidden;
+    }
+
+    .main__section {
+        padding-top: 250px;
+    }
+
+    .offer__wrapper img {
+        width: 300px;
+        height: auto;
+    }
+
+    .main__image__wrapper img {
+        z-index: -1;
+    }
+
+    .advantages__content.right,
+    .helper__one__wrapper {
+        padding-right: 50px;
+    }
+
+    .advantages__content.left,
+    .helper__two__wrapper {
+        padding-left: 50px;
+    }
+
+    .advantages__content {
+        width: 625px;
+    }
+
+    .main__content__wrapper {
+        background: transparent;
+    }
+
+    /* Games */
+    .game__card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .game__card {
+        width: 19%;
+        min-height: auto;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1199px){
+
+    /* Fonts */
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 40px);
+        line-height: calc(var(--typography-h1-lineheight) - 30px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 10px);
+        line-height: calc(var(--typography-h2-lineheight) - 10px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 12px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 12px);
+    }
+
+    body {
+        font-size: calc(var(--typography-default-size) - 6px);
+        line-height: calc(var(--typography-default-lineheight) - 4px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 20px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 20px);
+    }
+
+    .caption {
+        font-size: calc(var(--typography-body1-size) - 3px);
+        line-height: calc(var(--typography-body1-lineheight) + 4px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 10px);
+        line-height: calc(var(--typography-button-lineheight) - 15px);
+    }
+
+    .subtitle-3 {
+        font-size: calc(var(--typography-body2-size) - 10px);
+        line-height: calc(var(--typography-body2-lineheight) - 15px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 80px;
+        height: 70px;
+    }
+
+    .main__image__wrapper {
+        height: 600px;
+    }
+
+    .offer__wrapper img {
+        width: 210px;
+        height: auto;
+    }
+
+    .advantages__image .first {
+        top: 0;
+        left: 0;
+        width: 450px;
+        height: auto;
+    }
+
+    .advantages__image .third {
+        top: 0px;
+        right: 0px;
+        width: 450px;
+        height: auto;
+    }
+
+    /* Games */
+    .game__card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .game__card {
+        width: 19%;
+        min-height: auto;
+    }
+
+    .advantages__image img {
+        border: 5px solid var(--palette-default);
+    }
+
+    .advantages-1-wrapper {
+        left: 0;
+        top: 0;
+        width: 422px;
+        height: 422px;
+        margin-left: 0px;
+        margin-top: 80px;
+    }
+
+    .back_part_advantages_1 {
+        width: 509px;
+        height: 509px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .advantages-2-wrapper {
+        right: 0;
+        top: 0;
+        width: 422px;
+        height: 422px;
+        margin-right: 0px;
+        margin-top: 648px;
+    }
+
+    .back_part_advantages_2 {
+        width: 509px;
+        height: 509px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 0% 100%;
+        opacity: .7;
+    }
+
+    .advantages-3-wrapper {
+        left: 0;
+        top: 0;
+        width: 422px;
+        height: 422px;
+        margin-left: 0px;
+        margin-top: 1201px;
+    }
+
+    .back_part_advantages_3 {
+        width: 509px;
+        height: 509px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .helper__one__wrapper {
+        padding-bottom: 20px;
+    }
+
+    .helper__two__wrapper {
+        padding-bottom: 60px;
+    }
+
+    .back-1-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 261.5px 261.5px 261.5px;
+        border-color: transparent transparent rgba(46, 62, 86, 0.3) transparent;
+    }
+
+    .back-1-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -350px;
+        margin-top: 426px;
+        z-index: -5;
+    }
+
+    .back-2-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 400px 0 400px 400px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-2-wrapper {
+        left: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-left: 0px;
+        margin-top: 556px;
+        z-index: -5;
+    }
+
+    .back-3-image {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 600px 0 600px 600px;
+        border-color: transparent transparent transparent rgba(46, 62, 86, 0.3);
+    }
+
+    .back-3-wrapper {
+        right: 0;
+        top: 0;
+        width: 823px;
+        height: 823px;
+        margin-right: -600px;
+        margin-top: 956px;
+        z-index: -5;
+    }
+
+    .olympus-advantages-image-wrapper {
+        overflow: hidden;
+    }
+
+    .main__section {
+        padding-top: 130px;
+    }
+
+    .advantages__content {
+        width: 525px;
+    }
+
+    .main__content__wrapper {
+        background: transparent;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+
+    /* Fonts */
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 110px);
+        line-height: calc(var(--typography-h1-lineheight) - 88px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 12px);
+        line-height: calc(var(--typography-h2-lineheight) - 17px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 16px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 18px);
+    }
+
+    body {
+        font-size: calc(var(--typography-default-size) - 8px);
+        line-height: calc(var(--typography-default-lineheight) - 7px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 48px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 72px);
+    }
+
+    .caption {
+        font-size: calc(var(--typography-body1-size) - 4px);
+        line-height: calc(var(--typography-body1-lineheight) + 9px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 20px);
+        line-height: calc(var(--typography-button-lineheight) - 35px);
+    }
+
+    .subtitle-3 {
+        font-size: calc(var(--typography-body2-size) - 20px);
+        line-height: calc(var(--typography-body2-lineheight) - 37px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 68px;
+        height: 61px;
+    }
+
+    .main__image__wrapper {
+        height: 551px;
+    }
+
+    .main__image__wrapper img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .advantages__image .first {
+        top: 0;
+        left: 0;
+        width: 450px;
+        height: auto;
+    }
+
+    .advantages__image .third {
+        top: 0px;
+        right: 0px;
+        width: 450px;
+        height: auto;
+    }
+
+    .offer__wrapper img {
+        width: 194px;
+        height: auto;
+    }
+
+    /* Games */
+    .game__card img {
+        width: 130px;
+        height: 130px;
+    }
+
+    /* Custom */
+    .game__card {
+        width: 30%;
+        min-height: auto;
+    }
+
+    .advantages__image img {
+        border: 7px solid var(--palette-default);
+    }
+
+    .advantages__image .first {
+        top: 60px;
+        left: 13px;
+        width: 100%;
+    }
+
+    .secondary__wrapper {
+        background-color: transparent;
+    }
+
+    .advantages__title__block {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 10% 0);
+    }
+
+    .offer__title__block {
+        clip-path: polygon(90% 0, 100% 100%, 0 100%, 0 0);
+    }
+
+    .games__title__block {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 10% 0);
+    }
+
+    .advantages-1-wrapper {
+        left: 0;
+        top: 0;
+        width: 350px;
+        height: 350px;
+        margin-left: 0px;
+        margin-top: 100px;
+    }
+
+    .back_part_advantages_1 {
+        width: 400px;
+        height: 400px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .advantages-2-wrapper {
+        right: 0;
+        top: 0;
+        width: 350px;
+        height: 350px;
+        margin-right: 0px;
+        margin-top: 650px;
+    }
+
+    .back_part_advantages_2 {
+        width: 400px;
+        height: 400px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 0% 100%;
+        opacity: .7;
+    }
+
+    .advantages-3-wrapper {
+        left: 0;
+        top: 0;
+        width: 350px;
+        height: 350px;
+        margin-left: 0px;
+        margin-top: 1150px;
+    }
+
+    .back_part_advantages_3 {
+        width: 400px;
+        height: 400px;
+        background-color: var(--palette-primary);
+        z-index: -2;
+        border-radius: 100% 100% 100% 0px;
+        opacity: .7;
+    }
+
+    .helper__one__wrapper {
+        padding-bottom: 50px;
+    }
+
+    .helper__two__wrapper {
+        padding-bottom: 100px;
+    }
+
+    .back-1-wrapper {
+        display: none;
+    }
+
+    .back-2-wrapper {
+        display: none;
+    }
+
+    .back-3-wrapper {
+        display: none;
+    }
+
+    .olympus-advantages-image-wrapper {
+        overflow: hidden;
+    }
+
+    .main__image__wrapper {
+        overflow: hidden;
+    }
+    .main__image__wrapper img {
+        margin-left: 150px;
+    }
+
+    .main__section {
+        padding-top: 130px;
+    }
+
+    .advantages__content {
+        width: 425px;
+    }
+
+    .advantages__content.right,
+    .helper__one__wrapper {
+        padding-right: 50px;
+    }
+
+    .advantages__content.left,
+    .helper__two__wrapper {
+        padding-left: 50px;
+    }
+
+    .main__content__wrapper {
+        background: transparent;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+
+    /* Fonts */
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 100px);
+        line-height: calc(var(--typography-h1-lineheight) - 70px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 10px);
+        line-height: calc(var(--typography-h2-lineheight) - 15px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 12px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 15px);
+    }
+
+    body {
+        font-size: calc(var(--typography-default-size) - 6px);
+        line-height: calc(var(--typography-default-lineheight) - 5px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 30px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 30px);
+    }
+
+    .caption {
+        font-size: calc(var(--typography-body1-size) - 3px);
+        line-height: calc(var(--typography-body1-lineheight) + 5px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 15px);
+        line-height: calc(var(--typography-button-lineheight) - 20px);
+    }
+
+    .subtitle-3 {
+        font-size: calc(var(--typography-body2-size) - 12px);
+        line-height: calc(var(--typography-body2-lineheight) - 15px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 55px;
+        height: 50px;
+    }
+
+    .main__image__wrapper img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .offer__wrapper img {
+        width: 175px;
+        height: auto;
+    }
+
+    .advantages__image .first {
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: auto;
+    }
+
+    .advantages__image .third {
+        top: 0px;
+        right: 0px;
+        width: 250px;
+        height: auto;
+    }
+
+    .game__card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .advantages__image img {
+        border: 7px solid var(--palette-default);
+    }
+
+    /* Custom */
+    .secondary__wrapper {
+        background-color: transparent;
+    }
+
+    .stick {
+        height: 15px;
+    }
+
+    .main__content__wrapper {
+        background: transparent;
+    }
+
+    .advantages__title__block {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 10% 0);
+    }
+
+    .offer__title__block {
+        clip-path: polygon(90% 0, 100% 100%, 0 100%, 0 0);
+    }
+
+    .games__title__block {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 10% 0);
+    }
+
+    .game__card {
+        min-height: 200px;
+        width: 45%;
+    }
+
+    .olympus-advantages-image-wrapper {
+        display: none;
+    }
+
+    .main__section {
+        padding-top: 130px;
+    }
+
+    .advantages__image,
+    .helper__one__wrapper,
+    .helper__two__wrapper,
+    .advantages__content.right,
+    .advantages__content.left
+     {
+        padding: 0px 10px;
+    }
+
+    .helper__one__wrapper,
+    .helper__two__wrapper {
+        padding-bottom: 50px;
+    }
+
+    .advantages__image .first,
+    .advantages__image .second,
+    .advantages__image .third {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 280px) and (max-width: 576px){
+
+    /* Fonts */
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 158px);
+        line-height: calc(var(--typography-h1-lineheight) - 123px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 18px);
+        line-height: calc(var(--typography-h2-lineheight) - 32px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 18px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 23px);
+    }
+
+    body {
+        font-size: calc(var(--typography-default-size) - 16px);
+        line-height: calc(var(--typography-default-lineheight) - 13px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 60px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 90px);
+    }
+
+    .subtitle-3 {
+        font-size: calc(var(--typography-body2-size) - 16px);
+        line-height: calc(var(--typography-body2-lineheight) - 46px);
+    }
+
+    .caption {
+        font-size: calc(var(--typography-body1-size) - 8px);
+        line-height: calc(var(--typography-body1-lineheight) - 0px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 32px);
+        line-height: calc(var(--typography-button-lineheight) - 53px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .offer__wrapper img {
+        width: 150px;
+        height: auto;
+    }
+
+    .advantages__image img {
+        border: 7px solid var(--palette-default);
+    }
+
+    .advantages__image .first {
+        width: 100%;
+        height: 209px;
+    }
+
+    .advantages__image .second {
+        width: 100%;
+        height: 209px;
+    }
+
+    .advantages__image .third {
+        width: 100%;
+        height: 209px;
+    }
+
+    .game__card img {
+        width: 130px;
+        height: 130px;
+    }
+
+    /* Games */
+    .game__card {
+        min-height: 159px;
+        width: 45%;
+    }
+
+    /* Custom */
+    .advantages__image img {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .advantages__image .first {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .advantages__image .second {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .advantages__image .third {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .secondary__wrapper {
+        background-color: transparent;
+    }
+
+    .advantages__title__block {
+        padding: 15px 10px;
+        clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0 0);
+    }
+
+    .offer__title__block {
+        padding: 15px 10px;
+        clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0 0);
+    }
+
+    .games__title__block {
+        padding: 15px 10px;
+        clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0 0);
+    }
+
+    .main__content__wrapper {
+        background: transparent;
+    }
+
+    .advantages__title__block,
+    .offer__title__block,
+    .games__title__block {
+        width: 100%;
+    }
+
+    .olympus-advantages-image-wrapper {
+        display: none;
+    }
+
+    .main__section {
+        padding-top: 100px;
+    }
+
+    .advantages__image,
+    .helper__one__wrapper,
+    .helper__two__wrapper,
+    .advantages__content.right,
+    .advantages__content.left
+     {
+        padding: 0px 10px;
+    }
+
+    .helper__one__wrapper,
+    .helper__two__wrapper {
+        padding-bottom: 50px;
+    }
+
+    .advantages__image .first,
+    .advantages__image .second,
+    .advantages__image .third {
+        width: 100%;
+    }
+}
